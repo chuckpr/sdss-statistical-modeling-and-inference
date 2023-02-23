@@ -5,11 +5,11 @@ NAME = $(shell basename $(PWD))_$(shell id -u)
 build-image:
 	docker build -t $(shell basename $(PWD)) .
 
-run-lab: run-notebook.sh
+run-lab: run-lab.sh
 	IMAGE=$(shell basename $(PWD)) ./$<
 
 get-url:
-	docker exec $(NAME) jupyter notebook list | sed 's/0\.0\.0\.0/localhost/'
+	docker exec $(NAME) jupyter lab list
 
-stop-notebook:
+stop-lab:
 	docker stop $(NAME) || echo "Already stopped."

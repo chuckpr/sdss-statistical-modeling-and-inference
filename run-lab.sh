@@ -9,4 +9,4 @@ docker run \
   -p "$PORT:$PORT" \
   --user root \
   --name "${IMAGE}_$(id -u)" \
-  "$IMAGE" start.sh jupyter notebook --port "$PORT" --allow-root
+  "$IMAGE" start.sh jupyter lab --hostname localhost --port "$PORT" --allow-root
